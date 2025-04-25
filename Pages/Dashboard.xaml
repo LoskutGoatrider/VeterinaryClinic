@@ -1,0 +1,131 @@
+﻿<Page x:Class="VeterinaryClinic.Pages.Dashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VeterinaryClinic.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Меню"
+      Background="#CCDCE7">
+
+    <Grid VerticalAlignment="Center">
+        <Border BorderBrush="#A0A0A0" 
+                BorderThickness="1" 
+                CornerRadius="5"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="600"
+                Background="#CCDCE7">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" Opacity="0.3" BlurRadius="10"/>
+            </Border.Effect>
+
+            <StackPanel Margin="20">
+                <TextBlock Text="Главное меню" 
+                           FontSize="28" 
+                           FontWeight="Bold" 
+                           Foreground="#333333" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,30"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Первая строка -->
+                    <Button Content="Услуги"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Margin="10"
+                            Height="60"
+                            FontSize="16"
+                            Click="ServicesButton_Click"
+                            Grid.Column="0" Grid.Row="0"/>
+
+                    <Button Content="Ветеринары"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Margin="10"
+                            Height="60"
+                            FontSize="16"
+                            Click="VeterinariansButton_Click"
+                            Grid.Column="1" Grid.Row="0"/>
+
+                    <!-- Вторая строка -->
+                    <Button Content="Запись к врачу"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Margin="10"
+                            Height="60"
+                            FontSize="16"
+                            Click="AppointmentButton_Click"
+                            Grid.Column="0" Grid.Row="1"/>
+
+                    <Button Content="Медикаменты"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Margin="10"
+                            Height="60"
+                            FontSize="16"
+                            Click="MedicationsButton_Click"
+                            Grid.Column="1" Grid.Row="1"/>
+
+                    <!-- Третья строка -->
+                    <Button Content="Карты животных"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Margin="10"
+                            Height="60"
+                            FontSize="16"
+                            Click="AnimalCardsButton_Click"
+                            Grid.Column="0" Grid.Row="2"/>
+
+                    <Button Content="Сотрудники"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Margin="10"
+                            Height="60"
+                            FontSize="16"
+                            Click="EmployeesButton_Click"
+                            Grid.Column="1" Grid.Row="2"
+                            Visibility="{Binding IsAdmin, Converter={StaticResource BoolToVisibility}}"/>
+
+                    <!-- Четвертая строка -->
+                    <Button Content="Выйти"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Margin="10"
+                            Height="60"
+                            FontSize="16"
+                            Click="LogoutButton_Click"
+                            Grid.Column="0" Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                            Background="#DC3545">
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="#C82333" 
+                                                        Storyboard.TargetProperty="Background.Color" 
+                                                        Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Button.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="#DC3545" 
+                                                        Storyboard.TargetProperty="Background.Color" 
+                                                        Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

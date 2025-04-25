@@ -1,0 +1,131 @@
+﻿<Page x:Class="VeterinaryClinic.Pages.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:VeterinaryClinic.Pages"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="Регистрация"
+      Background="#CCDCE7">
+
+    <Grid VerticalAlignment="Center">
+        <Border BorderBrush="#A0A0A0" 
+                BorderThickness="1" 
+                CornerRadius="5"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" 
+                Width="400"
+                Background="#CCDCE7">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="5" Opacity="0.3" BlurRadius="10"/>
+            </Border.Effect>
+
+            <StackPanel Margin="0,10,0,10">
+                <TextBlock Text="Регистрация" 
+                           FontSize="28" 
+                           FontWeight="Bold" 
+                           Foreground="#333333" 
+                           HorizontalAlignment="Center" 
+                           Margin="0,0,0,20"/>
+
+                <TextBlock Text="Фамилия" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <TextBox Name="txtLastName" 
+                         Style="{StaticResource InputFieldStyle}"/>
+
+                <TextBlock Text="Имя" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <TextBox Name="txtName" 
+                         Style="{StaticResource InputFieldStyle}"/>
+
+                <TextBlock Text="Отчество" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <TextBox Name="txtMiddleName" 
+                          Style="{StaticResource InputFieldStyle}"/>
+
+                <TextBlock Text="Пол" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <StackPanel Orientation="Horizontal" Margin="20,5,20,10">
+                    <RadioButton Content="Мужской" 
+                                 Name="rbMale" 
+                                 Margin="0,0,15,0"
+                                 GroupName="Gender"/>
+                    <RadioButton Content="Женский" 
+                                 Name="rbFemale"
+                                 GroupName="Gender"/>
+                </StackPanel>
+
+                <TextBlock Text="Адрес" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <TextBox Name="txtAddress" 
+                          Style="{StaticResource InputFieldStyle}"/>
+
+                <TextBlock Text="Телефон" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <TextBox Name="txtPhoneNumber" 
+                         Style="{StaticResource InputFieldStyle}"/>
+
+                <TextBlock Text="Email" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <TextBox Name="txtEmail" 
+                         Style="{StaticResource InputFieldStyle}"/>
+
+                <TextBlock Text="Логин" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <TextBox Name="txtLogin" 
+                         Style="{StaticResource InputFieldStyle}"/>
+
+                <TextBlock Text="Пароль" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <PasswordBox Name="txtPassword" 
+                             Style="{StaticResource PasswordFieldStyle}"/>
+
+                <TextBlock Text="Подтверждение пароля" 
+                           FontSize="14" 
+                           Foreground="#3B4350" 
+                           HorizontalAlignment="Left" 
+                           Margin="20,0,0,5"/>
+                <PasswordBox Name="txtConfirmPassword" 
+                             Style="{StaticResource PasswordFieldStyle}"/>
+
+                <Button Content="Зарегистрироваться"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Click="BtnRegister_Click"
+                        Margin="20,20,20,10"/>
+                
+                <TextBlock Text="Вернуться к авторизации" 
+                               Foreground="#3B4350" 
+                               HorizontalAlignment="Center" 
+                               Cursor="Hand" 
+                               MouseDown="BackAuthorization_MouseDown"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

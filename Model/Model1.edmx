@@ -1,0 +1,1019 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище VeterinaryСlinicModel" Provider="Npgsql" ProviderManifestToken="17.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="animal">
+          <Key>
+            <PropertyRef Name="id_animal" />
+          </Key>
+          <Property Name="id_animal" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nickname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="30" />
+          <Property Name="id_gender" Type="int4" />
+          <Property Name="datebirth" Type="date" />
+          <Property Name="id_typeanimal" Type="int4" Nullable="false" />
+          <Property Name="id_client" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="breed">
+          <Key>
+            <PropertyRef Name="id_breed" />
+          </Key>
+          <Property Name="id_breed" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namebreed" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_typeanimal" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="id_client" />
+          </Key>
+          <Property Name="id_client" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="middlename" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="phonenumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="id_gender" Type="int4" Nullable="false" />
+          <Property Name="id_user" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contract">
+          <Key>
+            <PropertyRef Name="id_contract" />
+          </Key>
+          <Property Name="id_contract" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="id_client" Type="int4" Nullable="false" />
+          <Property Name="id_animal" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="id_employee" />
+          </Key>
+          <Property Name="id_employee" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="middlename" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="phonenumber" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="datebirth" Type="date" Nullable="false" />
+          <Property Name="passportseries" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="passportnumber" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="salary" Type="numeric" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="id_gender" Type="int4" Nullable="false" />
+          <Property Name="id_user" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="id_gender" />
+          </Key>
+          <Property Name="id_gender" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="medicines">
+          <Key>
+            <PropertyRef Name="id_medicines" />
+          </Key>
+          <Property Name="id_medicines" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namemedication" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="unitmeasurement" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantity" Type="int4" Nullable="false" />
+          <Property Name="price" Type="numeric" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="provisionservices">
+          <Key>
+            <PropertyRef Name="id_provisionservices" />
+          </Key>
+          <Property Name="id_provisionservices" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quantity" Type="int4" Nullable="false" />
+          <Property Name="id_employee" Type="int4" Nullable="false" />
+          <Property Name="id_service" Type="int4" Nullable="false" />
+          <Property Name="id_contract" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namerole" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="services">
+          <Key>
+            <PropertyRef Name="id_service" />
+          </Key>
+          <Property Name="id_service" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameservices" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="price" Type="numeric" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="typeanimal">
+          <Key>
+            <PropertyRef Name="id_typeanimal" />
+          </Key>
+          <Property Name="id_typeanimal" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameanimal" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usedmedicines">
+          <Key>
+            <PropertyRef Name="id_usedmedicines" />
+          </Key>
+          <Property Name="id_usedmedicines" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usedquantity" Type="int4" Nullable="false" />
+          <Property Name="usagedate" Type="date" Nullable="false" />
+          <Property Name="id_medicines" Type="int4" Nullable="false" />
+          <Property Name="id_contract" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="id_role" Type="int4" Nullable="false" />
+        </EntityType>
+        <Association Name="animal_id_client_fkey">
+          <End Role="client" Type="Self.client" Multiplicity="1" />
+          <End Role="animal" Type="Self.animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="id_client" />
+            </Principal>
+            <Dependent Role="animal">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="animal_id_gender_fkey">
+          <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
+          <End Role="animal" Type="Self.animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id_gender" />
+            </Principal>
+            <Dependent Role="animal">
+              <PropertyRef Name="id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="animal_id_typeanimal_fkey">
+          <End Role="typeanimal" Type="Self.typeanimal" Multiplicity="1" />
+          <End Role="animal" Type="Self.animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeanimal">
+              <PropertyRef Name="id_typeanimal" />
+            </Principal>
+            <Dependent Role="animal">
+              <PropertyRef Name="id_typeanimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="breed_id_typeanimal_fkey">
+          <End Role="typeanimal" Type="Self.typeanimal" Multiplicity="1" />
+          <End Role="breed" Type="Self.breed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeanimal">
+              <PropertyRef Name="id_typeanimal" />
+            </Principal>
+            <Dependent Role="breed">
+              <PropertyRef Name="id_typeanimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="client_id_gender_fkey">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="client" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id_gender" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="client_id_user_fkey">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="client" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="contract_id_animal_fkey">
+          <End Role="animal" Type="Self.animal" Multiplicity="1" />
+          <End Role="contract" Type="Self.contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="animal">
+              <PropertyRef Name="id_animal" />
+            </Principal>
+            <Dependent Role="contract">
+              <PropertyRef Name="id_animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="contract_id_client_fkey">
+          <End Role="client" Type="Self.client" Multiplicity="1" />
+          <End Role="contract" Type="Self.contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="id_client" />
+            </Principal>
+            <Dependent Role="contract">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employees_id_gender_fkey">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id_gender" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employees_id_user_fkey">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provisionservices_id_contract_fkey">
+          <End Role="contract" Type="Self.contract" Multiplicity="1" />
+          <End Role="provisionservices" Type="Self.provisionservices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contract">
+              <PropertyRef Name="id_contract" />
+            </Principal>
+            <Dependent Role="provisionservices">
+              <PropertyRef Name="id_contract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provisionservices_id_employee_fkey">
+          <End Role="employees" Type="Self.employees" Multiplicity="1" />
+          <End Role="provisionservices" Type="Self.provisionservices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="id_employee" />
+            </Principal>
+            <Dependent Role="provisionservices">
+              <PropertyRef Name="id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provisionservices_id_service_fkey">
+          <End Role="services" Type="Self.services" Multiplicity="1" />
+          <End Role="provisionservices" Type="Self.provisionservices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="services">
+              <PropertyRef Name="id_service" />
+            </Principal>
+            <Dependent Role="provisionservices">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usedmedicines_id_contract_fkey">
+          <End Role="contract" Type="Self.contract" Multiplicity="1" />
+          <End Role="usedmedicines" Type="Self.usedmedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contract">
+              <PropertyRef Name="id_contract" />
+            </Principal>
+            <Dependent Role="usedmedicines">
+              <PropertyRef Name="id_contract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usedmedicines_id_medicines_fkey">
+          <End Role="medicines" Type="Self.medicines" Multiplicity="1" />
+          <End Role="usedmedicines" Type="Self.usedmedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medicines">
+              <PropertyRef Name="id_medicines" />
+            </Principal>
+            <Dependent Role="usedmedicines">
+              <PropertyRef Name="id_medicines" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_id_role_fkey">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище VeterinaryСlinicModelContainer">
+          <EntitySet Name="animal" EntityType="Self.animal" Schema="public" store:Type="Tables" />
+          <EntitySet Name="breed" EntityType="Self.breed" Schema="public" store:Type="Tables" />
+          <EntitySet Name="client" EntityType="Self.client" Schema="public" store:Type="Tables" />
+          <EntitySet Name="contract" EntityType="Self.contract" Schema="public" store:Type="Tables" />
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="public" store:Type="Tables" />
+          <EntitySet Name="gender" EntityType="Self.gender" Schema="public" store:Type="Tables" />
+          <EntitySet Name="medicines" EntityType="Self.medicines" Schema="public" store:Type="Tables" />
+          <EntitySet Name="provisionservices" EntityType="Self.provisionservices" Schema="public" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="public" store:Type="Tables" />
+          <EntitySet Name="services" EntityType="Self.services" Schema="public" store:Type="Tables" />
+          <EntitySet Name="typeanimal" EntityType="Self.typeanimal" Schema="public" store:Type="Tables" />
+          <EntitySet Name="usedmedicines" EntityType="Self.usedmedicines" Schema="public" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="public" store:Type="Tables" />
+          <AssociationSet Name="animal_id_client_fkey" Association="Self.animal_id_client_fkey">
+            <End Role="client" EntitySet="client" />
+            <End Role="animal" EntitySet="animal" />
+          </AssociationSet>
+          <AssociationSet Name="animal_id_gender_fkey" Association="Self.animal_id_gender_fkey">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="animal" EntitySet="animal" />
+          </AssociationSet>
+          <AssociationSet Name="animal_id_typeanimal_fkey" Association="Self.animal_id_typeanimal_fkey">
+            <End Role="typeanimal" EntitySet="typeanimal" />
+            <End Role="animal" EntitySet="animal" />
+          </AssociationSet>
+          <AssociationSet Name="breed_id_typeanimal_fkey" Association="Self.breed_id_typeanimal_fkey">
+            <End Role="typeanimal" EntitySet="typeanimal" />
+            <End Role="breed" EntitySet="breed" />
+          </AssociationSet>
+          <AssociationSet Name="client_id_gender_fkey" Association="Self.client_id_gender_fkey">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="client_id_user_fkey" Association="Self.client_id_user_fkey">
+            <End Role="User" EntitySet="User" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="contract_id_animal_fkey" Association="Self.contract_id_animal_fkey">
+            <End Role="animal" EntitySet="animal" />
+            <End Role="contract" EntitySet="contract" />
+          </AssociationSet>
+          <AssociationSet Name="contract_id_client_fkey" Association="Self.contract_id_client_fkey">
+            <End Role="client" EntitySet="client" />
+            <End Role="contract" EntitySet="contract" />
+          </AssociationSet>
+          <AssociationSet Name="employees_id_gender_fkey" Association="Self.employees_id_gender_fkey">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="employees_id_user_fkey" Association="Self.employees_id_user_fkey">
+            <End Role="User" EntitySet="User" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="provisionservices_id_contract_fkey" Association="Self.provisionservices_id_contract_fkey">
+            <End Role="contract" EntitySet="contract" />
+            <End Role="provisionservices" EntitySet="provisionservices" />
+          </AssociationSet>
+          <AssociationSet Name="provisionservices_id_employee_fkey" Association="Self.provisionservices_id_employee_fkey">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="provisionservices" EntitySet="provisionservices" />
+          </AssociationSet>
+          <AssociationSet Name="provisionservices_id_service_fkey" Association="Self.provisionservices_id_service_fkey">
+            <End Role="services" EntitySet="services" />
+            <End Role="provisionservices" EntitySet="provisionservices" />
+          </AssociationSet>
+          <AssociationSet Name="usedmedicines_id_contract_fkey" Association="Self.usedmedicines_id_contract_fkey">
+            <End Role="contract" EntitySet="contract" />
+            <End Role="usedmedicines" EntitySet="usedmedicines" />
+          </AssociationSet>
+          <AssociationSet Name="usedmedicines_id_medicines_fkey" Association="Self.usedmedicines_id_medicines_fkey">
+            <End Role="medicines" EntitySet="medicines" />
+            <End Role="usedmedicines" EntitySet="usedmedicines" />
+          </AssociationSet>
+          <AssociationSet Name="User_id_role_fkey" Association="Self.User_id_role_fkey">
+            <End Role="role" EntitySet="role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VeterinaryСlinicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="animal">
+          <Key>
+            <PropertyRef Name="id_animal" />
+          </Key>
+          <Property Name="id_animal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="id_gender" Type="Int32" />
+          <Property Name="datebirth" Type="DateTime" Precision="0" />
+          <Property Name="id_typeanimal" Type="Int32" Nullable="false" />
+          <Property Name="id_client" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="client" Relationship="Self.animal_id_client_fkey" FromRole="animal" ToRole="client" />
+          <NavigationProperty Name="gender" Relationship="Self.animal_id_gender_fkey" FromRole="animal" ToRole="gender" />
+          <NavigationProperty Name="typeanimal" Relationship="Self.animal_id_typeanimal_fkey" FromRole="animal" ToRole="typeanimal" />
+          <NavigationProperty Name="contract" Relationship="Self.contract_id_animal_fkey" FromRole="animal" ToRole="contract" />
+        </EntityType>
+        <EntityType Name="breed">
+          <Key>
+            <PropertyRef Name="id_breed" />
+          </Key>
+          <Property Name="id_breed" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namebreed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_typeanimal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="typeanimal" Relationship="Self.breed_id_typeanimal_fkey" FromRole="breed" ToRole="typeanimal" />
+        </EntityType>
+        <EntityType Name="client">
+          <Key>
+            <PropertyRef Name="id_client" />
+          </Key>
+          <Property Name="id_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="id_gender" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="animal" Relationship="Self.animal_id_client_fkey" FromRole="client" ToRole="animal" />
+          <NavigationProperty Name="gender" Relationship="Self.client_id_gender_fkey" FromRole="client" ToRole="gender" />
+          <NavigationProperty Name="User" Relationship="Self.client_id_user_fkey" FromRole="client" ToRole="User" />
+          <NavigationProperty Name="contract" Relationship="Self.contract_id_client_fkey" FromRole="client" ToRole="contract" />
+        </EntityType>
+        <EntityType Name="contract">
+          <Key>
+            <PropertyRef Name="id_contract" />
+          </Key>
+          <Property Name="id_contract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="id_client" Type="Int32" Nullable="false" />
+          <Property Name="id_animal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="animal" Relationship="Self.contract_id_animal_fkey" FromRole="contract" ToRole="animal" />
+          <NavigationProperty Name="client" Relationship="Self.contract_id_client_fkey" FromRole="contract" ToRole="client" />
+          <NavigationProperty Name="provisionservices" Relationship="Self.provisionservices_id_contract_fkey" FromRole="contract" ToRole="provisionservices" />
+          <NavigationProperty Name="usedmedicines" Relationship="Self.usedmedicines_id_contract_fkey" FromRole="contract" ToRole="usedmedicines" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="id_employee" />
+          </Key>
+          <Property Name="id_employee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="datebirth" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="passportseries" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="passportnumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="salary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="id_gender" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="gender" Relationship="Self.employees_id_gender_fkey" FromRole="employees" ToRole="gender" />
+          <NavigationProperty Name="User" Relationship="Self.employees_id_user_fkey" FromRole="employees" ToRole="User" />
+          <NavigationProperty Name="provisionservices" Relationship="Self.provisionservices_id_employee_fkey" FromRole="employees" ToRole="provisionservices" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="id_gender" />
+          </Key>
+          <Property Name="id_gender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gender1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="animal" Relationship="Self.animal_id_gender_fkey" FromRole="gender" ToRole="animal" />
+          <NavigationProperty Name="client" Relationship="Self.client_id_gender_fkey" FromRole="gender" ToRole="client" />
+          <NavigationProperty Name="employees" Relationship="Self.employees_id_gender_fkey" FromRole="gender" ToRole="employees" />
+        </EntityType>
+        <EntityType Name="medicines">
+          <Key>
+            <PropertyRef Name="id_medicines" />
+          </Key>
+          <Property Name="id_medicines" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namemedication" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="unitmeasurement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="usedmedicines" Relationship="Self.usedmedicines_id_medicines_fkey" FromRole="medicines" ToRole="usedmedicines" />
+        </EntityType>
+        <EntityType Name="provisionservices">
+          <Key>
+            <PropertyRef Name="id_provisionservices" />
+          </Key>
+          <Property Name="id_provisionservices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="id_employee" Type="Int32" Nullable="false" />
+          <Property Name="id_service" Type="Int32" Nullable="false" />
+          <Property Name="id_contract" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="contract" Relationship="Self.provisionservices_id_contract_fkey" FromRole="provisionservices" ToRole="contract" />
+          <NavigationProperty Name="employees" Relationship="Self.provisionservices_id_employee_fkey" FromRole="provisionservices" ToRole="employees" />
+          <NavigationProperty Name="services" Relationship="Self.provisionservices_id_service_fkey" FromRole="provisionservices" ToRole="services" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namerole" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.User_id_role_fkey" FromRole="role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="services">
+          <Key>
+            <PropertyRef Name="id_service" />
+          </Key>
+          <Property Name="id_service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameservices" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="provisionservices" Relationship="Self.provisionservices_id_service_fkey" FromRole="services" ToRole="provisionservices" />
+        </EntityType>
+        <EntityType Name="typeanimal">
+          <Key>
+            <PropertyRef Name="id_typeanimal" />
+          </Key>
+          <Property Name="id_typeanimal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameanimal" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="animal" Relationship="Self.animal_id_typeanimal_fkey" FromRole="typeanimal" ToRole="animal" />
+          <NavigationProperty Name="breed" Relationship="Self.breed_id_typeanimal_fkey" FromRole="typeanimal" ToRole="breed" />
+        </EntityType>
+        <EntityType Name="usedmedicines">
+          <Key>
+            <PropertyRef Name="id_usedmedicines" />
+          </Key>
+          <Property Name="id_usedmedicines" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usedquantity" Type="Int32" Nullable="false" />
+          <Property Name="usagedate" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="id_medicines" Type="Int32" Nullable="false" />
+          <Property Name="id_contract" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="contract" Relationship="Self.usedmedicines_id_contract_fkey" FromRole="usedmedicines" ToRole="contract" />
+          <NavigationProperty Name="medicines" Relationship="Self.usedmedicines_id_medicines_fkey" FromRole="usedmedicines" ToRole="medicines" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="client" Relationship="Self.client_id_user_fkey" FromRole="User" ToRole="client" />
+          <NavigationProperty Name="employees" Relationship="Self.employees_id_user_fkey" FromRole="User" ToRole="employees" />
+          <NavigationProperty Name="role" Relationship="Self.User_id_role_fkey" FromRole="User" ToRole="role" />
+        </EntityType>
+        <Association Name="animal_id_client_fkey">
+          <End Role="client" Type="Self.client" Multiplicity="1" />
+          <End Role="animal" Type="Self.animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="id_client" />
+            </Principal>
+            <Dependent Role="animal">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="animal_id_gender_fkey">
+          <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
+          <End Role="animal" Type="Self.animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id_gender" />
+            </Principal>
+            <Dependent Role="animal">
+              <PropertyRef Name="id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="animal_id_typeanimal_fkey">
+          <End Role="typeanimal" Type="Self.typeanimal" Multiplicity="1" />
+          <End Role="animal" Type="Self.animal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeanimal">
+              <PropertyRef Name="id_typeanimal" />
+            </Principal>
+            <Dependent Role="animal">
+              <PropertyRef Name="id_typeanimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="contract_id_animal_fkey">
+          <End Role="animal" Type="Self.animal" Multiplicity="1" />
+          <End Role="contract" Type="Self.contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="animal">
+              <PropertyRef Name="id_animal" />
+            </Principal>
+            <Dependent Role="contract">
+              <PropertyRef Name="id_animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="breed_id_typeanimal_fkey">
+          <End Role="typeanimal" Type="Self.typeanimal" Multiplicity="1" />
+          <End Role="breed" Type="Self.breed" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="typeanimal">
+              <PropertyRef Name="id_typeanimal" />
+            </Principal>
+            <Dependent Role="breed">
+              <PropertyRef Name="id_typeanimal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="client_id_gender_fkey">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="client" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id_gender" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="client_id_user_fkey">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="client" Type="Self.client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="client">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="contract_id_client_fkey">
+          <End Role="client" Type="Self.client" Multiplicity="1" />
+          <End Role="contract" Type="Self.contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="client">
+              <PropertyRef Name="id_client" />
+            </Principal>
+            <Dependent Role="contract">
+              <PropertyRef Name="id_client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provisionservices_id_contract_fkey">
+          <End Role="contract" Type="Self.contract" Multiplicity="1" />
+          <End Role="provisionservices" Type="Self.provisionservices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contract">
+              <PropertyRef Name="id_contract" />
+            </Principal>
+            <Dependent Role="provisionservices">
+              <PropertyRef Name="id_contract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usedmedicines_id_contract_fkey">
+          <End Role="contract" Type="Self.contract" Multiplicity="1" />
+          <End Role="usedmedicines" Type="Self.usedmedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="contract">
+              <PropertyRef Name="id_contract" />
+            </Principal>
+            <Dependent Role="usedmedicines">
+              <PropertyRef Name="id_contract" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employees_id_gender_fkey">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id_gender" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="id_gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employees_id_user_fkey">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provisionservices_id_employee_fkey">
+          <End Role="employees" Type="Self.employees" Multiplicity="1" />
+          <End Role="provisionservices" Type="Self.provisionservices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employees">
+              <PropertyRef Name="id_employee" />
+            </Principal>
+            <Dependent Role="provisionservices">
+              <PropertyRef Name="id_employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usedmedicines_id_medicines_fkey">
+          <End Role="medicines" Type="Self.medicines" Multiplicity="1" />
+          <End Role="usedmedicines" Type="Self.usedmedicines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="medicines">
+              <PropertyRef Name="id_medicines" />
+            </Principal>
+            <Dependent Role="usedmedicines">
+              <PropertyRef Name="id_medicines" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="provisionservices_id_service_fkey">
+          <End Role="services" Type="Self.services" Multiplicity="1" />
+          <End Role="provisionservices" Type="Self.provisionservices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="services">
+              <PropertyRef Name="id_service" />
+            </Principal>
+            <Dependent Role="provisionservices">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_id_role_fkey">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VeterinaryСlinicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="animal" EntityType="Self.animal" />
+          <EntitySet Name="breed" EntityType="Self.breed" />
+          <EntitySet Name="client" EntityType="Self.client" />
+          <EntitySet Name="contract" EntityType="Self.contract" />
+          <EntitySet Name="employees" EntityType="Self.employees" />
+          <EntitySet Name="gender" EntityType="Self.gender" />
+          <EntitySet Name="medicines" EntityType="Self.medicines" />
+          <EntitySet Name="provisionservices" EntityType="Self.provisionservices" />
+          <EntitySet Name="role" EntityType="Self.role" />
+          <EntitySet Name="services" EntityType="Self.services" />
+          <EntitySet Name="typeanimal" EntityType="Self.typeanimal" />
+          <EntitySet Name="usedmedicines" EntityType="Self.usedmedicines" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="animal_id_client_fkey" Association="Self.animal_id_client_fkey">
+            <End Role="client" EntitySet="client" />
+            <End Role="animal" EntitySet="animal" />
+          </AssociationSet>
+          <AssociationSet Name="animal_id_gender_fkey" Association="Self.animal_id_gender_fkey">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="animal" EntitySet="animal" />
+          </AssociationSet>
+          <AssociationSet Name="animal_id_typeanimal_fkey" Association="Self.animal_id_typeanimal_fkey">
+            <End Role="typeanimal" EntitySet="typeanimal" />
+            <End Role="animal" EntitySet="animal" />
+          </AssociationSet>
+          <AssociationSet Name="contract_id_animal_fkey" Association="Self.contract_id_animal_fkey">
+            <End Role="animal" EntitySet="animal" />
+            <End Role="contract" EntitySet="contract" />
+          </AssociationSet>
+          <AssociationSet Name="breed_id_typeanimal_fkey" Association="Self.breed_id_typeanimal_fkey">
+            <End Role="typeanimal" EntitySet="typeanimal" />
+            <End Role="breed" EntitySet="breed" />
+          </AssociationSet>
+          <AssociationSet Name="client_id_gender_fkey" Association="Self.client_id_gender_fkey">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="client_id_user_fkey" Association="Self.client_id_user_fkey">
+            <End Role="User" EntitySet="User" />
+            <End Role="client" EntitySet="client" />
+          </AssociationSet>
+          <AssociationSet Name="contract_id_client_fkey" Association="Self.contract_id_client_fkey">
+            <End Role="client" EntitySet="client" />
+            <End Role="contract" EntitySet="contract" />
+          </AssociationSet>
+          <AssociationSet Name="provisionservices_id_contract_fkey" Association="Self.provisionservices_id_contract_fkey">
+            <End Role="contract" EntitySet="contract" />
+            <End Role="provisionservices" EntitySet="provisionservices" />
+          </AssociationSet>
+          <AssociationSet Name="usedmedicines_id_contract_fkey" Association="Self.usedmedicines_id_contract_fkey">
+            <End Role="contract" EntitySet="contract" />
+            <End Role="usedmedicines" EntitySet="usedmedicines" />
+          </AssociationSet>
+          <AssociationSet Name="employees_id_gender_fkey" Association="Self.employees_id_gender_fkey">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="employees_id_user_fkey" Association="Self.employees_id_user_fkey">
+            <End Role="User" EntitySet="User" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="provisionservices_id_employee_fkey" Association="Self.provisionservices_id_employee_fkey">
+            <End Role="employees" EntitySet="employees" />
+            <End Role="provisionservices" EntitySet="provisionservices" />
+          </AssociationSet>
+          <AssociationSet Name="usedmedicines_id_medicines_fkey" Association="Self.usedmedicines_id_medicines_fkey">
+            <End Role="medicines" EntitySet="medicines" />
+            <End Role="usedmedicines" EntitySet="usedmedicines" />
+          </AssociationSet>
+          <AssociationSet Name="provisionservices_id_service_fkey" Association="Self.provisionservices_id_service_fkey">
+            <End Role="services" EntitySet="services" />
+            <End Role="provisionservices" EntitySet="provisionservices" />
+          </AssociationSet>
+          <AssociationSet Name="User_id_role_fkey" Association="Self.User_id_role_fkey">
+            <End Role="role" EntitySet="role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище VeterinaryСlinicModelContainer" CdmEntityContainer="VeterinaryСlinicEntities">
+          <EntitySetMapping Name="animal">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.animal">
+              <MappingFragment StoreEntitySet="animal">
+                <ScalarProperty Name="id_animal" ColumnName="id_animal" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+                <ScalarProperty Name="datebirth" ColumnName="datebirth" />
+                <ScalarProperty Name="id_typeanimal" ColumnName="id_typeanimal" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="breed">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.breed">
+              <MappingFragment StoreEntitySet="breed">
+                <ScalarProperty Name="id_breed" ColumnName="id_breed" />
+                <ScalarProperty Name="namebreed" ColumnName="namebreed" />
+                <ScalarProperty Name="id_typeanimal" ColumnName="id_typeanimal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="client">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.client">
+              <MappingFragment StoreEntitySet="client">
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contract">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.contract">
+              <MappingFragment StoreEntitySet="contract">
+                <ScalarProperty Name="id_contract" ColumnName="id_contract" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="id_client" ColumnName="id_client" />
+                <ScalarProperty Name="id_animal" ColumnName="id_animal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.employees">
+              <MappingFragment StoreEntitySet="employees">
+                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="datebirth" ColumnName="datebirth" />
+                <ScalarProperty Name="passportseries" ColumnName="passportseries" />
+                <ScalarProperty Name="passportnumber" ColumnName="passportnumber" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gender">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.gender">
+              <MappingFragment StoreEntitySet="gender">
+                <ScalarProperty Name="id_gender" ColumnName="id_gender" />
+                <ScalarProperty Name="gender1" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medicines">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.medicines">
+              <MappingFragment StoreEntitySet="medicines">
+                <ScalarProperty Name="id_medicines" ColumnName="id_medicines" />
+                <ScalarProperty Name="namemedication" ColumnName="namemedication" />
+                <ScalarProperty Name="unitmeasurement" ColumnName="unitmeasurement" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="provisionservices">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.provisionservices">
+              <MappingFragment StoreEntitySet="provisionservices">
+                <ScalarProperty Name="id_provisionservices" ColumnName="id_provisionservices" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="id_employee" ColumnName="id_employee" />
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+                <ScalarProperty Name="id_contract" ColumnName="id_contract" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="namerole" ColumnName="namerole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.services">
+              <MappingFragment StoreEntitySet="services">
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+                <ScalarProperty Name="nameservices" ColumnName="nameservices" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="typeanimal">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.typeanimal">
+              <MappingFragment StoreEntitySet="typeanimal">
+                <ScalarProperty Name="id_typeanimal" ColumnName="id_typeanimal" />
+                <ScalarProperty Name="nameanimal" ColumnName="nameanimal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usedmedicines">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.usedmedicines">
+              <MappingFragment StoreEntitySet="usedmedicines">
+                <ScalarProperty Name="id_usedmedicines" ColumnName="id_usedmedicines" />
+                <ScalarProperty Name="usedquantity" ColumnName="usedquantity" />
+                <ScalarProperty Name="usagedate" ColumnName="usagedate" />
+                <ScalarProperty Name="id_medicines" ColumnName="id_medicines" />
+                <ScalarProperty Name="id_contract" ColumnName="id_contract" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="VeterinaryСlinicModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

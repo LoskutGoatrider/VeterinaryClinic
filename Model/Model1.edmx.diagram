@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3209160a816248acb602a4c51d3d6398" Name="Diagram1" ZoomLevel="143">
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.animal" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.breed" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.client" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.contract" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.employees" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.gender" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.medicines" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.provisionservices" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.role" Width="1.5" PointX="1.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.services" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.typeanimal" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.usedmedicines" Width="1.5" PointX="10.5" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VeterinaryСlinicModel.User" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="VeterinaryСlinicModel.animal_id_client_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.animal_id_gender_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.animal_id_typeanimal_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.contract_id_animal_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.breed_id_typeanimal_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.client_id_gender_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.client_id_user_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.contract_id_client_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.provisionservices_id_contract_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.usedmedicines_id_contract_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.employees_id_gender_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.employees_id_user_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.provisionservices_id_employee_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.usedmedicines_id_medicines_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.provisionservices_id_service_fkey" ManuallyRouted="false" />
+        <AssociationConnector Association="VeterinaryСlinicModel.User_id_role_fkey" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
